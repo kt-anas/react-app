@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import TodoApp from "./component/TodoAPP/TodoApp";
+import Header from "./component/Header/Header";
+import About from "./component/About/About";
+import { BrowserRouter ,Routes, Route} from "react-router-dom";
+// import Counter from "./component/Counter";
 
-function App() {
+// import Forms from "./component/Forms";
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      
+         <BrowserRouter>
+           <Header/>
+           <Routes>
+              <Route path="/" exact Component={TodoApp}/>
+              <Route path="/about" Component={About}/>
+           </Routes>
+         </BrowserRouter>
+       
   );
-}
-
-export default App;
+};
